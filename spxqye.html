@@ -1,0 +1,446 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title>搜索</title>
+		<link href="css/mui.min.css" rel="stylesheet">
+	
+		<style>
+			.ShopDetails {
+				height: 46px;
+				background: white;
+				line-height: 46px;
+			}
+			
+			.ShopTypeName {
+				margin-left: 20px;
+				font-size: 13px;
+				color: black;
+			}
+			
+			.ShopTypeName:hover {
+				color: black;
+			}
+			
+			.ShopTypeMore {
+				font-size: 13px;
+				margin-right: 25px;
+				color: #B5B5B5;
+			}
+			
+			.ShopTypeMore:hover {
+				color: #B5B5B5;
+			}
+			
+			.mui-grid-view.mui-grid-9 {
+				background: white;
+			}
+			
+			.mui-grid-view.mui-grid-9 .mui-table-view-cell {
+				border: 0px;
+			}
+			
+			.mui-grid-view.mui-grid-9 .mui-table-view-cell.mui-active {
+				background: white;
+			}
+			
+			.mui-row.mui-fullscreen>[class*="mui-col-"] {
+				height: 100%;
+			}
+			
+			.mui-col-xs-3,
+			.mui-col-xs-9 {
+				overflow-y: auto;
+				height: 100%;
+			}
+			
+			.mui-segmented-control .mui-control-item {
+				line-height: 50px;
+				width: 100%;
+			}
+			
+			.mui-control-content {
+				display: block;
+			}
+			
+			.mui-segmented-control.mui-segmented-control-inverted.mui-segmented-control-vertical .mui-control-item,
+			.mui-segmented-control.mui-segmented-control-inverted.mui-segmented-control-vertical .mui-control-item.mui-active {
+				border: 0px;
+				/*color: green;*/
+			}
+			
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+				background-color: #fff;
+			}
+			
+			.left_name:hover {
+				color: #747474;
+			}
+			
+			.mui-segmented-control .mui-control-item {
+				line-height: 40px;
+			}
+			
+			#segmentedControls .mui-table-view-cell {
+				padding: 8px 5px;
+			}
+			
+			.mui-grid-view.mui-grid-9 .mui-table-view-cell {
+				/*height: 100px;*/
+			}
+			
+			.mui-control-item.left-mui-active {
+				background: white;
+			}
+			
+			.left-mui-active .left_name {
+				color: #E02D26;
+			}
+			
+			.left_name {
+				margin-right: 5px;
+				font-size: 13px;
+				color: #747474;
+			}
+			
+			.mui-table-view-cell:after {
+				height: 0px;
+			}
+			/*.mui-fullscreen {
+				top: 45px;
+			}*/
+			
+			.mui-table-view:after {
+				height: 0pxl
+			}
+			
+			.mui-search {
+				margin: 10px 10px 0px 10px;
+			}
+			
+			input[type=search] {
+				background: white;
+			}
+			
+			.iconStyle {
+				display: inline-block;
+				float: left;
+			}
+			
+			.iconStyle div {
+				height: 21px;
+				width: 21px;
+				line-height: 20px;
+				margin-top: 9.4px;
+				border: 1px solid #747474;
+				border-radius: 50%;
+				background: white;
+			}
+			
+			.left-mui-active .iconStyle div {
+				border: 1px solid #E02D26;
+				background: #E02D26;
+			}
+			
+			.mui-grid-view.mui-grid-9 {
+				border: 0px;
+			}
+			
+			.mui-icon-search {
+				color: #E02D26;
+			}
+			
+			.mui-icon-search:hover {
+				color: #E02D26;
+			}
+			
+			.mui-control-item {
+				background: #FAFAFA;
+			}
+		</style>
+	</head>
+ 
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a id="back" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">商品详情</h1>
+		</header>
+		<div class="mui-content mui-row mui-fullscreen">
+			<!--<div id="search">
+				<div class="mui-input-row mui-search">
+					<input type="search" class="mui-input-clear" placeholder="搜索商品">
+				</div>
+			</div>-->
+			<div class="mui-col-xs-3">
+				<div id="segmentedControls" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
+				</div>
+			</div>
+			<div id="segmentedControlContents" class="mui-col-xs-9">
+			</div>
+		</div>
+			<script src="js/mui.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script>
+			mui.init({});
+			mui.plusReady(function() {
+				var sub = plus.webview.create("File-tap-botton-subpage-3/Search.html", "Search.html");
+				//去搜索
+				document.getElementById("btn_Search").addEventListener("tap", function() {
+					var setPage = plus.webview.getWebviewById('Search.html');
+					mui.fire(setPage, 'gotoSearch', {});
+					mui.openWindow({
+						id: 'Search.html',
+						show: {
+							autoShow: true, //页面loaded事件发生后自动显示，默认为true
+							aniShow: "slide-in-right",
+							duration: 300
+						}
+					});
+				})
+			})
+			var controls = document.getElementById("segmentedControls");
+			var contents = document.getElementById("segmentedControlContents");
+			var html = [];
+			var str = "",
+				str1 = "",
+				i = 1,
+				j = 0,
+				m = 16, //左侧选项卡数量+1
+				n = 16, //每个选项卡列表数量+1
+				typeName = ["", 
+				"主食",
+				 "面包", 
+				 "好吃的", 
+				 "不好的", 
+				 "母婴", 
+				 "电器", 
+				 "家纺",
+				  "美食",
+				   "百货",
+				    "运动", 
+				    "其他1", 
+				    "其他2", 
+				    "其他3", 
+				    "其他4", 
+				    "其他5"
+				    ],
+				typeNameIcon = ["", 
+				"iconfont icon-lingdaitie3", 
+				"iconfont icon-xiebao",
+				"iconfont icon-47",
+				 "iconfont icon-yifu",
+				  "iconfont icon-shouji",
+				   "iconfont icon-muying",
+				    "iconfont icon-dianqi", 
+				    "iconfont icon-jiajujiafang", 
+				    "iconfont icon-meishi",
+				     "iconfont icon-huiliuquriyongbaihuo",
+				      "iconfont icon-yundonghuwaileimufill", 
+				      "iconfont icon-xiezi", 
+				      "iconfont icon-jushihui", 
+				      "iconfont icon-dianqi1", 
+				      "iconfont icon-jixianyundong", 
+				      "iconfont icon-muying1",
+				     
+				       ];
+			for(; i < m; i++) {
+				str += '<li class="mui-table-view-cell mui-media mui-control-item" data-index="' + (i - 1) + '" href="#content' + i + '" " >';
+				str += '		<div style="width:60%;float:left;text-align:right;"><a class="left_name">' + typeName[i ] + '</a></div>';
+				str += '		<div class="iconStyle" style=""><div><a class="' + typeNameIcon[i] + '"></a></div></div>';
+				str += '</li>';
+			}
+			controls.innerHTML = str;
+			html = [];
+			var img_1 = ["", 
+			"http://omsproductionimg.yangkeduo.com/images/2018-01-16/72ef142a2eacf814458bc7d8a1d700c0.jpeg@750w_1l_50Q", 
+			"http://omsproductionimg.yangkeduo.com/images/2018-01-16/72ef142a2eacf814458bc7d8a1d700c0.jpeg@750w_1l_50Q", 
+			"http://omsproductionimg.yangkeduo.com/images/2018-01-16/72ef142a2eacf814458bc7d8a1d700c0.jpeg@750w_1l_50Q", 
+			"http://omsproductionimg.yangkeduo.com/images/2018-01-16/72ef142a2eacf814458bc7d8a1d700c0.jpeg@750w_1l_50Q",
+			 "http://omsproductionimg.yangkeduo.com/images/2018-01-16/72ef142a2eacf814458bc7d8a1d700c0.jpeg@750w_1l_50Q",
+			  "http://omsproductionimg.yangkeduo.com/images/2018-01-16/72ef142a2eacf814458bc7d8a1d700c0.jpeg@750w_1l_50Q",
+			   "http://omsproductionimg.yangkeduo.com/images/2018-01-16/72ef142a2eacf814458bc7d8a1d700c0.jpeg@750w_1l_50Q", 
+			   "http://omsproductionimg.yangkeduo.com/images/2018-01-16/72ef142a2eacf814458bc7d8a1d700c0.jpeg@750w_1l_50Q", 
+			   "http://omsproductionimg.yangkeduo.com/images/2018-01-16/72ef142a2eacf814458bc7d8a1d700c0.jpeg@750w_1l_50Q"
+			   ]
+			   ;
+			var item_1 = ["", "主食", "面点", "外卖", "传奇", "肯德基", "必胜客", "华莱士", "牛排", "嗷呜"];
+			
+			for(i = 1; i < m; i++) {
+				html.push('<div id="content' + i + '" class="mui-control-content ShopdetailsItem"><div class="ShopDetails"><a  class="ShopTypeName">' + typeName[i] + '</a></div><ul class="mui-table-view mui-grid-view mui-grid-9" style="">');
+				for(j = 1; j < 10; j++) {
+					html.push('<li class="mui-table-view-cell mui-col-xs-4 mui-col-sm-4" title=' + item_1[j] + ' data-dingdn='+ j +'><img src=' + img_1[j] + ' style=""><div class="mui-media-body" style="font-size:12px;">' + item_1[j] + '</div></li>')
+				}
+				html.push('</ul></div>');
+			}
+			contents.innerHTML = html.join('');
+			var imgWidth = $("#segmentedControls").width()
+			$("img").css("width", imgWidth - 40 + "px");
+			$("img").css("height", imgWidth - 40 + "px");
+			//默认选中第一个 
+			controls.querySelector('.mui-control-item').classList.add('left-mui-active');
+			(function() {
+				var controlsElem = document.getElementById("segmentedControls");
+				var contentsElem = document.getElementById("segmentedControlContents");
+				var controlListElem = controlsElem.querySelectorAll('.mui-control-item');
+				var contentListElem = contentsElem.querySelectorAll('.mui-control-content');
+				var controlWrapperElem = controlsElem.parentNode;
+				var controlWrapperHeight = controlWrapperElem.offsetHeight;
+				var controlMaxScroll = controlWrapperElem.scrollHeight - controlWrapperHeight; //左侧类别最大可滚动高度
+				var maxScroll = contentsElem.scrollHeight - contentsElem.offsetHeight; //右侧内容最大可滚动高度
+				var controlHeight = controlListElem[0].offsetHeight; //左侧类别每一项的高度
+				var controlTops = []; //存储control的scrollTop值
+				var contentTops = [0]; //存储content的scrollTop值
+				var length = contentListElem.length;
+				for(var i = 0; i < length; i++) {
+					controlTops.push(controlListElem[i].offsetTop + controlHeight);
+				}
+				for(var i = 1; i < length; i++) {
+					var offsetTop = contentListElem[i].offsetTop;
+					if(offsetTop + 100 >= maxScroll) {
+						var height = Math.max(offsetTop + 100 - maxScroll, 100);
+						var totalHeight = 0;
+						var heights = [];
+						for(var j = i; j < length; j++) {
+							var offsetHeight = contentListElem[j].offsetHeight;
+							totalHeight += offsetHeight;
+							heights.push(totalHeight);
+						}
+						for(var m = 0, len = heights.length; m < len; m++) {
+							contentTops.push(parseInt(maxScroll - (height - heights[m] / totalHeight * height)));
+						}
+						break;
+					} else {
+						contentTops.push(parseInt(offsetTop));
+					}
+				}
+				contentsElem.addEventListener('scroll', function() {
+					var scrollTop = contentsElem.scrollTop;
+					for(var i = 0; i < length; i++) {
+						var offsetTop = contentTops[i];
+						var offset = Math.abs(offsetTop - scrollTop);
+						if(scrollTop < offsetTop) {
+							if(scrollTop >= maxScroll) {
+								onScroll(length - 1);
+							} else {
+								onScroll(i - 1);
+							}
+							break;
+						} else if(offset < 20) {
+							onScroll(i);
+							break;
+						} else if(scrollTop >= maxScroll) {
+							onScroll(length - 1);
+							break;
+						}
+					}
+ 
+				});
+				var lastIndex = 0;
+				//监听content滚动
+				var onScroll = function(index) {
+					if(lastIndex !== index) {
+						lastIndex = index;
+						var lastActiveElem = controlsElem.querySelector('.left-mui-active');
+						lastActiveElem && (lastActiveElem.classList.remove('left-mui-active'));
+						var currentElem = controlsElem.querySelector('.mui-control-item:nth-child(' + (index + 1) + ')');
+						currentElem.classList.add('left-mui-active');
+						//简单处理左侧分类滚动，要么滚动到底，要么滚动到顶
+						var controlScrollTop = controlWrapperElem.scrollTop;
+						if(controlScrollTop + controlWrapperHeight < controlTops[index]) {
+							controlWrapperElem.scrollTop = controlMaxScroll;
+						} else if(controlScrollTop > controlTops[index] - controlHeight) {
+							controlWrapperElem.scrollTop = 0;
+						}
+					}
+				};
+				//滚动到指定content
+				var scrollTo = function(index) {
+					contentsElem.scrollTop = contentTops[index];
+				};
+				mui(controlsElem).on('tap', '.mui-control-item', function(e) {
+					scrollTo(this.getAttribute('data-index'));
+					return false;
+				});
+			
+			
+				//点击详细分类
+
+					function getUrlParam(name) {
+					var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+					var r = window.location.search.substr(1).match(reg);
+					if(r != null) {
+						return unescape(r[2]);
+
+					} else {
+						return null;
+					}
+				}
+				//获取url传入的值
+				//我们的url为 quxiao
+				var iizsss = getUrlParam('iiz');
+				
+
+				mui("#segmentedControlContents").on("tap", "li", function() {
+					// mui.alert("点击了：" + $(this).attr("title"));
+					//改变this指向
+					var shef=this;
+					 var btnArray = ['否', '是'];
+					 // 将我们的值 赋值进去
+					 var names=$(this).attr("title");
+					
+                mui.confirm(''+names+'加入购物车？', "", btnArray, function(e) {
+                    if (e.index == 1) {
+                     console.log(shef)
+				// 点击加入购物车  跳转到购物车页面
+						
+								// 每次一定要传递 商品id  这些参数后续是需要改的 等后端接完接口 所有的参数 都要更改 现在暂时性的
+								//
+							var shopid=$(shef).attr("data-dingdn");
+			        		//会对应 1  2  3  4  1对应第一张轮播图 两个参数
+			        			mui.openWindow({
+									url: 'gouwuche.html?lunid=' + iizsss + '&shopid=' + shopid,
+
+									id: 'gouwuche.html',
+
+								});
+								
+                    } else {
+                       
+                    }
+                })
+
+				})
+ 
+			})();
+		</script>
+	</body>
+</html>
+
+
+	// 	mui.init({
+	// 		swipeBack:true //启用右滑关闭功能
+	// 	});
+	// 	//写死不动
+	
+			
+
+	// 			// 点击加入购物车  跳转到购物车页面
+	// 				function jrgwc(s) {
+	// 					// 每次一定要传递 商品id
+	// 					var shopid=$(s).attr("data-gu");
+	// 	        		//会打印对应 1  2  3  4  1对应第一张轮播图
+		        		
+	// 			mui.openWindow({
+	// 				url: 'gouwuche.html?lunid=' + iizsss + '&shopid=' + shopid,
+
+	// 				id: 'gouwuche.html',
+
+	// 			});
+
+	// 		};
+
+
+
+</html>

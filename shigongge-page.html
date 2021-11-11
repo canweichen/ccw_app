@@ -1,0 +1,388 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>轮播图内容</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+	</head>
+	<style>
+
+	
+		/**/
+	a {
+    text-decoration: none;
+    color: #777;
+    font-size: 15px;
+}
+		.FcKg0z7ZA3tlZo-vSxopN {
+			   padding: 1rem 1rem;
+			    -webkit-flex-direction: row;
+			    -ms-flex-direction: row;
+			    flex-direction: row;
+			    display: -webkit-flex;
+			    display: -ms-flexbox;
+			    display: flex;
+			    text-decoration: none;
+			    box-sizing: border-box;
+			  position: relative;
+			  margin-bottom: 0.5rem;
+			  
+			}
+			._2q5HWkq__CHgEQLE76bhCF {
+			    width: 76px;
+			    height: 57px;
+			    position: relative;
+			    box-sizing: border-box;
+			    margin-right: 8px;
+			    -webkit-flex-shrink: 0;
+			    -ms-flex-negative: 0;
+			    flex-shrink: 0;
+			    border-radius: 2px;
+			    overflow: hidden;
+			}
+			._2q5HWkq__CHgEQLE76bhCF ._2igkDNMjpxxIgHzE1Ptqyk {
+				    display: block;
+				    width: 100%;
+				}
+				.lazyimage-holder .lazyimage-img {
+			    position: absolute;
+			    top: 0;
+			    left: 0;
+			    height: 100%;
+			    width: 100%;
+			}
+			._2L_M6YlchG3yfnSSg7L6mL {
+			    -webkit-flex: 1 0;
+			    -ms-flex: 1 0;
+			    flex: 1 0;
+			    min-width: 0;
+			}
+			._2L_M6YlchG3yfnSSg7L6mL ._3ce4X4pC6NTjqy4_fKHA8E {
+			    font-size: 16px;
+			    color: #333;
+			    line-height: 1.4;
+			    white-space: nowrap;
+			    width: 80%;
+			    overflow: hidden;
+			    text-overflow: ellipsis;
+			    font-weight: 600;
+			}
+			._2L_M6YlchG3yfnSSg7L6mL ._21yyPg0MxIEFMCg8RnTeUo {
+			    margin-top: 4px;
+			    display: -webkit-flex;
+			    display: -ms-flexbox;
+			    display: flex;
+			}
+
+			.D11MX3M-SDa4TXs8lmgHq {
+			    display: inline-block;
+			    height: 12px;
+			}
+			._1ukqM-8qHp61SdF68btTCh {
+    background: url(http://p0.meituan.net/xianfu/f8bc8dffdbc805878aa3801a33f563cd1001.png) no-repeat;
+    width: 12px;
+    height: 12px;
+    float: left;
+    background-position: 40% 5.66%;
+    background-size: 126% 379%;
+}
+
+._19QQt5prXpFQr9QhCVfwC5 {
+    margin-left: 4px;
+}
+
+._34MB4leIjAhG3LXl-DN8Ed {
+    font-size: 11px;
+    color: #333;
+    line-height: 1.4;
+}
+._1wRyOmTit2wxvwxcfx4tf1 {
+    margin-top: 4px;
+}
+._34MB4leIjAhG3LXl-DN8Ed {
+    font-size: 11px;
+    color: #333;
+    line-height: 1.4;
+}
+._3WMYBNt0cX8jtjuQLqQ-0V {
+    background-image: url(http://www.jinyisoubu.com/images/9c/23/be/78c24982aac43e3e1f0064e69dcafcd0f49348b1.JPG_t.JPG);
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 15px;
+    background-size: contain;
+    float: right;
+}
+._2t-V7ElqTaDS-PIn3jWR_X {
+    max-height: 46px;
+    overflow: hidden;
+    position: relative;
+}
+._3ykJaIHGFSdjdQuChaUN6z {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-top: 8px;
+
+    font-size: 14px;
+    margin-top: 0;
+    height: 2rem;
+   
+    color: #8f8f94;
+    margin-bottom: 0px;
+
+}
+._1vvO5ZUocEXs-aSvyWfhGT {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    border-style: none;
+}
+._3ykJaIHGFSdjdQuChaUN6z ._34MB4leIjAhG3LXl-DN8Ed {
+    color: #666;
+}
+
+._34MB4leIjAhG3LXl-DN8Ed {
+    font-size: 11px;
+    color: #333;
+    line-height: 1.4;
+}
+._20HnNmr2Skt7lyGyrsg5R7{
+
+    -webkit-flex: 1 0;
+    -ms-flex: 1 0;
+    flex: 1 0;
+    text-align: right;
+}
+/**/
+		
+	</style>
+
+
+
+
+	<body>
+		<!--下拉刷新容器-->
+		
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<!--数据列表-->
+				<ul class="mui-table-view mui-table-view-chevron">
+					<!-- 在这我已经写好了 -->
+				
+
+					<!-- <li >
+						<a class="FcKg0z7ZA3tlZo-vSxopN" href="#"  aria-label="速味居黄焖鸡米饭"  onclick="tzlunbos()" >
+							<div class="_2q5HWkq__CHgEQLE76bhCF" role="logo" aria-label="速味居黄焖鸡米饭" >
+								<div>
+									<div class="_2igkDNMjpxxIgHzE1Ptqyk lazyimage-holder" style="height: 57px;">
+										<img src="http://p1.meituan.net/waimaipoi/cb60f48b6d79a3627adb74f19d65579036864.jpg" alt="icon" class="lazyimage-img">
+									</div>
+								</div>
+							</div>
+							<div class="_2L_M6YlchG3yfnSSg7L6mL"  >
+								<div class="_3ce4X4pC6NTjqy4_fKHA8E">速味居黄焖鸡米饭）</div>
+								<div class="_21yyPg0MxIEFMCg8RnTeUo"><div>
+									<div class="D11MX3M-SDa4TXs8lmgHq" style="height: 10px;">
+										<i class="_1ukqM-8qHp61SdF68btTCh" style="transform: scale(0.833333);"></i>
+										<i class="_1ukqM-8qHp61SdF68btTCh" style="transform: scale(0.833333);"></i>
+										<i class="_1ukqM-8qHp61SdF68btTCh" style="transform: scale(0.833333);"></i>
+										<i class="_1ukqM-8qHp61SdF68btTCh" style="transform: scale(0.833333);"></i>
+										<i class="_1ukqM-8qHp61SdF68btTCh" style="transform: scale(0.833333);"></i>
+									</div>
+									<span class="_34MB4leIjAhG3LXl-DN8Ed _19QQt5prXpFQr9QhCVfwC5">4.7</span>
+								</div>
+								<div class="_20HnNmr2Skt7lyGyrsg5R7">
+									<span class="_34MB4leIjAhG3LXl-DN8Ed">30分钟</span>
+									<span class="_34MB4leIjAhG3LXl-DN8Ed _3jD4JjJGIR519uivFOA_ud">236m</span>
+								</div>
+							</div>
+								<div class="_1wRyOmTit2wxvwxcfx4tf1">
+									<span class="_34MB4leIjAhG3LXl-DN8Ed">起送 ¥20</span>
+									<span class="_34MB4leIjAhG3LXl-DN8Ed _3jD4JjJGIR519uivFOA_ud">配送 ¥3</span>
+									<span class="_34MB4leIjAhG3LXl-DN8Ed _3jD4JjJGIR519uivFOA_ud">人均 ¥22</span>
+									<span class="_3WMYBNt0cX8jtjuQLqQ-0V"></span>
+								</div>
+								<div class="_2t-V7ElqTaDS-PIn3jWR_X">
+									<p class="_3ykJaIHGFSdjdQuChaUN6z">
+										<img src="http://p0.meituan.net/xianfu/f8bc8dffdbc805878aa3801a33f563cd1001.png" alt="activity icon" class="_1vvO5ZUocEXs-aSvyWfhGT">
+										<span class="_34MB4leIjAhG3LXl-DN8Ed">满27减2;满39减3;满100减4</span>
+									</p>
+								</div>
+							</div>
+						
+						</a >
+					</li> -->
+
+				</ul>
+			</div>
+		</div>
+<script src="js/jquery.min.js"></script>
+			<script src="js/mui.min.js"></script>
+		<script>
+
+//写死不动
+	function getUrlParam(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				if(r != null) {
+					return decodeURI(r[2]);
+
+				} else {
+					return null;
+				}
+			}
+			// decodeURI 这个参数变了 因为 获取到为中文 需要 转换
+
+			// unescape 平常都是这个
+ 
+			var tenname = getUrlParam('tenname');
+
+		
+			mui.init({
+				pullRefresh: {
+					container: '#pullrefresh',
+					//下拉我们不做
+					// down: {
+					// 	callback: pulldownRefresh
+					// },
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					}
+				}
+			});
+			// /**
+			//  * 下拉刷新具体业务实现
+			//  */
+			// function pulldownRefresh() {
+			// 	setTimeout(function() {
+			// 		var table = document.body.querySelector('.mui-table-view');
+			// 		var cells = document.body.querySelectorAll('.mui-table-view-cell');
+			// 		for (var i = cells.length, len = i + 3; i < len; i++) {
+			// 			var li = document.createElement('li');
+			// 			li.className = 'mui-table-view-cell';
+			// 			li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
+			// 			//下拉刷新，新纪录插到最前面；
+			// 			table.insertBefore(li, table.firstChild);
+			// 		}
+			// 		mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+			// 	}, 1500);
+			// }
+			var count = 0;
+			/**
+			 * 上拉加载具体业务实现
+			 */
+			function pullupRefresh() {
+				setTimeout(function() {
+					mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
+					var table = document.body.querySelector('.mui-table-view');
+					var cells = document.body.querySelectorAll('.mui-table-view-cellssss');
+					for (var i = cells.length, len = i + 20; i < len; i++) {
+						var li = document.createElement('li');
+						 li.className = 'mui-table-view-cellssss';
+								// data-spids 默认为商品id
+								//点击跳转商品详情
+	 							li.innerHTML = '<a class="FcKg0z7ZA3tlZo-vSxopN" role="logo"  >'+
+							'<div class="_2q5HWkq__CHgEQLE76bhCF" role="logo" >'+
+								'<div>'+
+									'<div class="_2igkDNMjpxxIgHzE1Ptqyk lazyimage-holder" style="height: 57px;">'+
+										'<img src="http://p1.meituan.net/waimaipoi/cb60f48b6d79a3627adb74f19d65579036864.jpg" alt="icon" class="lazyimage-img">'+
+									'</div>'+
+								'</div>'+
+							'</div>'+
+							'<div class="_2L_M6YlchG3yfnSSg7L6mL" ontouchend="tzspxq(this)" data-spids='+(i+1)+'>'+
+							// 我将  十宫格的内容 赋值到这  那么 用户点进来 就是显示对应的内容  
+							// 样式和 我们的轮播图进来后一样  
+								'<div class="_3ce4X4pC6NTjqy4_fKHA8E">'+tenname+'</div>'+
+								'<div class="_21yyPg0MxIEFMCg8RnTeUo"><div>'+
+									'<div class="D11MX3M-SDa4TXs8lmgHq" style="height: 10px;">'+
+										'<i class="_1ukqM-8qHp61SdF68btTCh" style="transform: scale(0.833333);"></i>'+
+										'<i class="_1ukqM-8qHp61SdF68btTCh" style="transform: scale(0.833333);"></i>'+
+										'<i class="_1ukqM-8qHp61SdF68btTCh" style="transform: scale(0.833333);"></i>'+
+										'<i class="_1ukqM-8qHp61SdF68btTCh" style="transform: scale(0.833333);"></i>'+
+										'<i class="_1ukqM-8qHp61SdF68btTCh" style="transform: scale(0.833333);"></i>'+
+									'</div>'+
+									'<span class="_34MB4leIjAhG3LXl-DN8Ed _19QQt5prXpFQr9QhCVfwC5">4.7</span>'+
+								'</div>'+
+								'<div class="_20HnNmr2Skt7lyGyrsg5R7">'+
+									'<span class="_34MB4leIjAhG3LXl-DN8Ed">30分钟</span>'+
+									'<span class="_34MB4leIjAhG3LXl-DN8Ed _3jD4JjJGIR519uivFOA_ud">236m</span>'+
+								'</div>'+
+							'</div>'+
+								'<div class="_1wRyOmTit2wxvwxcfx4tf1">'+
+									'<span class="_34MB4leIjAhG3LXl-DN8Ed">起送 ¥20</span>'+
+									'<span class="_34MB4leIjAhG3LXl-DN8Ed _3jD4JjJGIR519uivFOA_ud">配送 ¥3</span>'+
+									'<span class="_34MB4leIjAhG3LXl-DN8Ed _3jD4JjJGIR519uivFOA_ud">人均 ¥22</span>'+
+									'<span class="_3WMYBNt0cX8jtjuQLqQ-0V"></span>'+
+								'</div>'+
+								'<div class="_2t-V7ElqTaDS-PIn3jWR_X">'+
+									'<p class="_3ykJaIHGFSdjdQuChaUN6z">'+
+										'<img src="http://p0.meituan.net/xianfu/f8bc8dffdbc805878aa3801a33f563cd1001.png" alt="activity icon" class="_1vvO5ZUocEXs-aSvyWfhGT">'+
+										'<span class="_34MB4leIjAhG3LXl-DN8Ed">满27减2;满39减3;满100减4</span>'+
+									'</p>'+
+								'</div>'+
+							'</div>'+
+						
+						'</a>';
+			
+				
+					
+						
+						table.appendChild(li);
+					}
+				}, 1500);
+
+
+	
+
+			}
+			if (mui.os.plus) {
+				mui.plusReady(function() {
+					setTimeout(function() {
+						mui('#pullrefresh').pullRefresh().pullupLoading();
+					}, 1000);
+				});
+			} else {
+				mui.ready(function() {
+					mui('#pullrefresh').pullRefresh().pullupLoading();
+				});
+			}
+
+
+
+
+		</script>
+		<script>
+	// 	 $("#FcKg0z7ZA3tlZo-vSxopN").click(function(event){
+  
+ //  event.stopPropagation(); // 阻止事件冒泡
+ //  alert("我是小div");
+ //  return false;
+ // });
+
+					// 跳转 商品详情   spxqye.html
+				
+		        function tzspxq(s) {
+		  
+					var spids=$(s).attr("data-spids");
+					// 对应的就是 spids  1  2  3 商品id
+					// 还要将tenname  我们十宫格的名字传递过去  知道是哪个十宫格
+		        	mui.openWindow({
+						
+					url: 'spxqye.html?tenname=' + tenname + '&spids=' + spids,
+							id: 'spxqye.html',
+
+						});
+
+					};
+			  
+		</script>
+	</body>
+</html>

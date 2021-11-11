@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--首页-->
+		<!-- js是我们对应的需要的js -->
+		<meta charset="utf-8">
+		<title>首页</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css">
+		<!--App自定义的css-->
+		<!-- 引入的css和js 还有style样式 就不讲了啊 -->
+	
+		<style>
+			.ncnamebox{
+				width: 100%;
+				padding-bottom: 0.5rem;
+
+			}
+			.ncnamebox .nc{
+				float: left;
+			}
+			.ncnamebox .sjhm{
+				float: right;
+			}
+			
+
+		</style>
+	</head>
+	<body>
+		<!-- 头部 不管他 -->
+		<header class="mui-bar mui-bar-nav">
+			<!-- 添加添加跳转到填写地址页面 -->
+			<a href="# " style="float: right;margin-top: 0.5rem;color:red;" id="tjdzss">添加</a>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">地址展示页</h1>
+		</header>
+
+		<div class="mui-content">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell ">
+					<div class="ncnamebox">
+							<div class="nc">
+								昵称
+							</div>
+							<div class="sjhm">
+								135555555555
+							</div>
+							<div style="clear:both"></div>
+					</div>
+
+					<div>中国新疆乌鲁木齐齐齐赫尔新疆乌鲁木齐齐齐赫尔</div>
+				
+				</li>
+
+				<li class="mui-table-view-cell ">
+					<div class="ncnamebox">
+							<div class="nc">
+								昵称
+							</div>
+							<div class="sjhm">
+								135555555555
+							</div>
+							<div style="clear:both"></div>
+					</div>
+
+					<div>中国新疆乌鲁木齐齐齐赫尔新疆乌鲁木齐齐齐赫尔</div>
+				
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/mui.min.js"></script>
+	<script>
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+		//点击添加按钮
+		document.getElementById("tjdzss").addEventListener('tap', function() {
+						mui.openWindow({
+						
+							url:'txshdz.html',
+							id: 'txshdz.html',
+
+						});
+				});
+
+	</script>
+</html>

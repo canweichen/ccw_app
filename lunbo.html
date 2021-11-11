@@ -1,0 +1,85 @@
+<!-- 这个我们做成上啦下拉的那个啊 -->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>轮播图内容</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+	</head>
+	<body>
+		<!-- 教过你的啊 -->
+		<header class="mui-bar mui-bar-nav">
+			<a id="back" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 id="title" class="mui-title">轮播图内容</h1>
+		</header>
+	<div class="mui-iframe-wrapper" style="top: 45px; bottom: 0px;">
+		<!-- 改变 -->
+		<iframe src="lunbo-page.html" id="lunbo-page.html" name="lunbo-page.html"></iframe>
+	</div>
+		</body>
+		
+
+		<script src="js/jquery.min.js"></script>
+	<script src="js/mui.min.js"></script>
+	<script type="text/javascript">
+
+	// 首先需要判断  从index进来的轮播图 那个值 是多少 是1 ？2 ？  3 还是？
+	//如何判断 需要我们用 js
+	// 我写好的有 直接拿着用
+//写死不动
+	function getUrlParam(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				if(r != null) {
+					return unescape(r[2]);
+
+				} else {
+					return null;
+				}
+			}
+			//获取url传入的值
+			//我们的url为 quxiao
+			var quxiao = getUrlParam('quxiao');
+			//启用双击监听
+				mui.init({
+					gestureConfig:{
+						doubletap:true
+					},
+					subpages:[{
+						//这里也要把取消传递过去
+						url:'lunbo-page.html?quxiao=' + quxiao,
+						id:'lunbo-page.html',
+						styles:{
+							top: '45px',
+							bottom: '0px',
+						}
+					}]
+
+
+
+				});
+
+
+
+					
+			  
+
+	
+		// var contentWebview = null;
+		// document.querySelector('header').addEventListener('doubletap',function () {
+		// 	if(contentWebview==null){
+		// 		contentWebview = plus.webview.currentWebview().children()[0];
+		// 	}
+		// 	contentWebview.evalJS("mui('#pullrefresh').pullRefresh().scrollTo(0,0,100)");
+		// });
+	</script>
+<script>
+	   
+</script>
+
+
+</html>

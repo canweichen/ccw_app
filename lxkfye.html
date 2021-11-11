@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--首页-->
+		<!-- js是我们对应的需要的js -->
+		<meta charset="utf-8">
+		<title>联系电话</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css">
+		<!--App自定义的css-->
+		<!-- 引入的css和js 还有style样式 就不讲了啊 -->
+	
+		<style>
+			.ncnameboxs{
+				width: 100%;
+				
+			}
+			.ncnameboxs p{
+				padding: 0.5rem 0;
+				font-size: 20px;
+			}
+
+		</style>
+	</head>
+	<body>
+		<!-- 头部 不管他 -->
+		<header class="mui-bar mui-bar-nav">
+			
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">联系客服</h1>
+		</header>
+
+		<div class="mui-content">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell ">
+					<div class="ncnameboxs">
+						<p>如有疑问请拔打下方电话：</p>
+						<p><a href="tel:0147-88469258">0147-8846925</a></p>
+					</div>
+
+					
+				
+				</li>
+
+			
+			</ul>
+		</div>
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/mui.min.js"></script>
+	<script>
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+		//点击添加按钮
+		document.getElementById("tjdzss").addEventListener('tap', function() {
+						mui.openWindow({
+						
+							url:'txshdz.html',
+							id: 'txshdz.html',
+
+						});
+				});
+
+	</script>
+</html>

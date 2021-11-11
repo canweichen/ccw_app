@@ -1,0 +1,329 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>个人中心</title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+	
+		<style type="text/css">
+			body,
+			.mui-content {
+				background: white;
+			}
+			
+			#top {
+				width: 96%;
+				height: 130px;
+				background-image: linear-gradient(-20deg, #fc6076 0%, #ff9a44 100%);
+				margin: 7px auto;
+				border-radius: 5px;
+			}
+			
+			#top .acc_manager {
+				width: 35%;
+				font-size: 15px;
+				float: right;
+				text-align: center;
+				height: 30px;
+				margin-top: 15px;
+				font-weight: bold;
+				color: white;
+			}
+			
+			#mui-icon-gear .mui-icon-gear {
+				font-weight: bold;
+			}
+			
+			.mui-icon-gear:before {
+				font-size: 20px;
+			}
+			
+			#top .top-info {
+				width: 80%;
+				height: 60px;
+				float: left;
+				margin-left: 30px;
+			}
+			
+			#top .top-info .top-info-img {
+				width: 23%;
+				height: 100%;
+				float: left;
+			}
+			
+			#top .top-info .top-info-name {
+				width: 77%;
+				height: 100%;
+				float: left;
+			}
+			
+			#top .top-info .top-info-img img {
+				width: 60px;
+				height: 60px;
+				border-radius: 50%;
+			}
+			
+			.user-name-box {
+				margin-left: 5px;
+				line-height: 35px;
+			}
+			
+			.user-id {
+				margin-left: 5px;
+				color: white;
+				font-weight: bold;
+				font-size: 12px;
+				line-height: 20px;
+			}
+			
+			.user-name {
+				color: white;
+				font-weight: bold;
+				font-size: 15px;
+			}
+			
+			.user-name:hover {
+				color: white;
+			}
+			
+			.user-lever {
+				color: #F9D50D;
+				font-weight: bold;
+				font-size: 15px;
+			}
+			
+			.user-lever:hover {
+				color: #FFFF00;
+			}
+			
+			.order-top {
+				margin: 15px 20px;
+				font-weight: bold;
+				font-size: 15px;
+			}
+			
+			.ft {
+				font-size: 12px;
+				color: #E02D26;
+				font-weight: bold;
+				display: initial;
+			}
+			
+			.bd {
+				border-right: 2px solid #EFEFF4;
+			}
+			
+			.bg {
+				height: 10px;
+				background: #EFEFF4;
+			}
+			
+			.st {
+				margin-top: 20px;
+			}
+			
+			.sti {
+				border-radius: 50%;
+			}
+			
+			.st_item1 {
+				background: #F5AB59;
+			}
+			
+			.st_item2 {
+				background: #796BAF;
+			}
+			
+			.st_item3 {
+				background: #E02D26;
+			}
+			
+			.st_item4 {
+				background: #CACACB;
+			}
+			
+			.st_item5 {
+				background: #4DC7BA;
+			}
+			
+			.st_item6 {
+				background: #00A1E9;
+			}
+			
+			.st_item7 {
+				background: #F09300;
+			}
+			
+			.st_item8 {
+				background: #4E83DE;
+			}
+			
+		
+		</style>
+	</head>
+ 
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">个人中心</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div id="top">
+					<div id="btn_accountManager" class="acc_manager mui-pull-right">
+						
+					</div>
+					<div class="top-info">
+						<div class="top-info-img" id="go_photo">
+							<img src="http://www.jinyisoubu.com/images/ea/c1/10/0bf9ecd620416e3ccf517ec66680b7895c734090.JPG_t.JPG">
+						</div>
+ 
+						<div class="top-info-name">
+							<div class="user-name-box">
+								<a class="user-name">鬼话连篇</a>
+								<a class="user-lever">V1</a>
+							</div>
+							<div class="user-id">用户ID:10086</div>
+						</div>
+					</div>
+				</div>
+				<!-- 我的钱包不要的话可以注释掉 -->
+				<div id="wallet">
+					<div class="order-top">
+						我的钱包
+					</div>
+					<div class="order-item mui-bar-tab ">
+						<a class="mui-tab-item">
+							<span class="mui-icon ft">6000元</span>
+							<span class="mui-tab-label">账户余额</span>
+						</a>
+						<a class="mui-tab-item">
+							<span class="mui-icon ft">20张</span>
+							<span class="mui-tab-label">优惠券</span>
+						</a>
+						<a class="mui-tab-item">
+							<span class="mui-icon ft">2200元</span>
+							<span class="mui-tab-label">奖金收益</span>
+						</a>
+						<a class="mui-tab-item">
+							<span class="mui-icon ft">6000分</span>
+							<span class="mui-tab-label">消费积分</span>
+						</a>
+					</div>
+				</div>
+				<div class="bg"></div>
+				<!-- 这里也是 目前是四个 两个可以用 收货地址和联系客服  不用的话可以删除 -->
+				<div id="menuItem">
+					<div class="order-item mui-bar-tab st">
+						<!-- 点击 收货地址跳转到这个输入地址页面-->
+						<a class="mui-tab-item" id="shdzyme">
+							<span class="mui-icon iconfont icon-msnui-market sti st_item1"></span>
+							<span class="mui-tab-label">收货地址</span>
+						</a>
+						<a class="mui-tab-item" id="lxkfcont">
+							<span class="mui-icon iconfont icon-kehu sti st_item2"></span>
+							<span class="mui-tab-label">联系客服</span>
+						</a>
+						<a class="mui-tab-item">
+							<span class="mui-icon iconfont icon-shoucang sti st_item3"></span>
+							<span class="mui-tab-label">设置</span>
+						</a>
+						<a class="mui-tab-item bd">
+							<span class="mui-icon iconfont icon-tixing sti st_item4"></span>
+							<span class="mui-tab-label">消息</span>
+						</a>
+
+					</div>
+					
+				</div>
+			</div>
+		</div>
+			<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item" id="tabber" >
+				<span class="mui-icon mui-icon-home" ></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-chat" id="tabbar-with-chat">
+				<span class="mui-icon mui-icon-email"></span>
+				<span class="mui-tab-label">订单</span>
+			</a>
+			 
+			<a class="mui-tab-item mui-active" href="#tabbar-with-map" id="tabbar-with-map">
+				<span class="mui-icon mui-icon-gear"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		
+		</nav>
+	
+	<script src="js/jquery.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script>
+			mui.init();
+		
+
+			//我的钱包 
+			mui("#wallet").on("tap", ".mui-tab-item", function() {
+				//这里是我的钱包显示的内容
+				// 一个获取金额 一个获取 文字   0  1 children()[0]  children()[1]
+				var temje=$(this).children()[0].innerHTML.trim();
+				var temwz=$(this).children()[1].innerHTML.trim();
+				 mui.alert(''+temje+'', '', function() {
+                    
+                });
+			});
+
+			// 点击收货地址 需要跳转收货地址  页面  两种  一种是用户写的有收货地址 第二种是 用户没有写过
+
+		
+		
+		
+
+
+			//在我的的时候 只需要处理 首页 和订单
+				document.getElementById("tabber").addEventListener('tap', function() {
+						mui.openWindow({
+						
+							url:'index.html',
+							id: 'index.html',
+
+						});
+				});
+
+					//点击 我的 跳转到个人中心页面
+				document.getElementById("tabbar-with-chat").addEventListener('tap', function() {
+						mui.openWindow({
+						
+							url:'dingdan.html',
+							id: 'dingdan.html',
+
+						});
+				});
+
+				//点击收货地址 跳转收货地址页面
+				// dzxsye.html 如果有地址 忘这跳
+				
+					document.getElementById("shdzyme").addEventListener('tap', function() {
+						mui.openWindow({
+						
+							url:'txshdz.html',
+							id: 'txshdz.html',
+
+						});
+				});
+
+					//点击联系客服页面
+				
+						document.getElementById("lxkfcont").addEventListener('tap', function() {
+								mui.openWindow({
+								url:'lxkfye.html',
+								id: 'lxkfye.html',
+
+								});
+					});
+					
+					
+
+		</script>
+	</body>
+</html>
